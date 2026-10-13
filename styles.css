@@ -67,7 +67,6 @@ button { padding: 10px 14px; border: 0; border-radius: 8px; background: linear-g
 .intro-steps { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: auto 0 0; padding: 18px 0 0; border-top: 1px solid #ffffff14; list-style: none; }
 .intro-steps::before { content: "LIFECYCLE STEPS"; flex-basis: 100%; color: #7f93ae; font: 10px monospace; letter-spacing: .12em; }
 .intro-steps a { color: #e6eef8; font-size: 14px; font-weight: 600; text-decoration: none; transition: color .18s ease; }
-.intro-steps a span { margin-right: 6px; color: var(--cyan); font: 11px monospace; }
 .intro-steps a::after { margin-left: 4px; color: var(--cyan); content: "→"; }
 .intro-steps a:hover { color: var(--cyan); }
 .intro-steps a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 3px; }
