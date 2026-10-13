@@ -1,5 +1,5 @@
-const ids = ['intro', 'ingest', 'enrich', 'generate', 'transform', 'moderate', 'optimize', 'deliver', 'orchestrate'];
-const names = ['Intro', '1 Ingest', '2 Enrich', '3 Generate', '4 Transform', '5 Moderate', '6 Optimize', '7 Deliver', '8 Orchestrate'];
+const ids = ['intro', 'ingest', 'enrich', 'generate', 'transform', 'moderate', 'optimize', 'deliver', 'orchestrate', 'use-cases'];
+const names = ['Intro', '1 Ingest', '2 Enrich', '3 Generate', '4 Transform', '5 Moderate', '6 Optimize', '7 Deliver', '8 Orchestrate', 'Use cases'];
 const config = window.LIFECYCLE_DEMO_CONFIG || {};
 const $ = (selector) => document.querySelector(selector);
 let activeIndex = 0;
@@ -33,6 +33,7 @@ function go(index) {
   const counter = $('#counter');
   if (counter) counter.textContent = names[activeIndex] + ' of 8';
   history.replaceState(null, '', '#' + ids[activeIndex]);
+  if (ids[activeIndex] !== 'use-cases') closeUseCase();
   requestAnimationFrame(() => {
     if (ids[activeIndex] === 'enrich') syncEnrichVisual();
     if (ids[activeIndex] === 'transform') syncTransformVisual();
@@ -546,6 +547,40 @@ $('#change-asset').onclick = openUploadWidget;
 $('#enrich-visual').onload = syncEnrichVisual;
 $('#transform-visual').onload = syncTransformVisual;
 
+function openUseCase(card) {
+  const section = $('#use-cases');
+  const frame = $('#usecase-frame');
+  const title = card.querySelector('h3').textContent;
+  section.classList.add('is-detail');
+  $('.usecase-intro').hidden = true;
+  $('.usecase-grid').hidden = true;
+  $('.usecase-detail').hidden = false;
+  $('#usecase-title').textContent = title;
+  frame.hidden = !card.dataset.src;
+  $('.usecase-soon').hidden = Boolean(card.dataset.src);
+  if (card.dataset.src) {
+    frame.title = title;
+    if (frame.getAttribute('src') !== card.dataset.src) frame.src = card.dataset.src;
+  } else {
+    $('#usecase-soon-title').textContent = title;
+  }
+  $('.usecase-back').focus();
+}
+
+function closeUseCase() {
+  const section = $('#use-cases');
+  if (!section.classList.contains('is-detail')) return;
+  section.classList.remove('is-detail');
+  $('.usecase-intro').hidden = false;
+  $('.usecase-grid').hidden = false;
+  $('.usecase-detail').hidden = true;
+}
+
+document.querySelectorAll('.usecase-card').forEach((card) => {
+  card.onclick = () => openUseCase(card);
+});
+$('.usecase-back').onclick = closeUseCase;
+
 document.querySelectorAll('nav a, .intro-steps a').forEach((link) => {
   link.onclick = (event) => {
     event.preventDefault();
@@ -558,6 +593,7 @@ if (next) next.onclick = () => go(activeIndex + 1);
 if (prev) prev.onclick = () => go(activeIndex - 1);
 $('[data-next]').onclick = () => go(1);
 addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeUseCase();
   if (event.key === 'ArrowRight') go(activeIndex + 1);
   if (event.key === 'ArrowLeft') go(activeIndex - 1);
 });
