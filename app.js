@@ -28,7 +28,7 @@ function go(index) {
   activeIndex = Math.max(0, Math.min(index, ids.length - 1));
   ids.forEach((id, itemIndex) => {
     $('#' + id).classList.toggle('active', itemIndex === activeIndex);
-    document.querySelector(`a[href="#${id}"]`).classList.toggle('active', itemIndex === activeIndex);
+    document.querySelector(`nav a[href="#${id}"]`).classList.toggle('active', itemIndex === activeIndex);
   });
   const counter = $('#counter');
   if (counter) counter.textContent = names[activeIndex] + ' of 8';
@@ -546,7 +546,7 @@ $('#change-asset').onclick = openUploadWidget;
 $('#enrich-visual').onload = syncEnrichVisual;
 $('#transform-visual').onload = syncTransformVisual;
 
-document.querySelectorAll('nav a').forEach((link) => {
+document.querySelectorAll('nav a, .intro-steps a').forEach((link) => {
   link.onclick = (event) => {
     event.preventDefault();
     go(ids.indexOf(link.hash.slice(1)));
