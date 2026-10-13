@@ -60,9 +60,9 @@ button { padding: 10px 14px; border: 0; border-radius: 8px; background: linear-g
 .orbit i:nth-child(3) { width: 650px; height: 440px; border-color: #51d8ee12; }
 .orbit img { z-index: 1; width: 245px; height: 245px; border: 8px solid #07162b; outline: 1px solid var(--cyan); border-radius: 50%; object-fit: cover; }
 .intro-outcomes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.intro-outcome { display: flex; flex-direction: column; min-height: 300px; box-sizing: border-box; padding: 26px 24px 24px; border: 1px solid #ffffff1f; border-radius: 16px; background: linear-gradient(170deg, #10213a, #0a1222 70%); }
+.intro-outcome { container-type: inline-size; display: flex; flex-direction: column; min-height: 300px; box-sizing: border-box; padding: 26px 24px 24px; border: 1px solid #ffffff1f; border-radius: 16px; background: linear-gradient(170deg, #10213a, #0a1222 70%); }
 .intro-outcome > span { color: var(--cyan); font: 11px monospace; letter-spacing: .12em; }
-.intro-outcome h3 { margin: 58px 0 0; font-size: 30px; font-weight: 600; line-height: 1.1; letter-spacing: -.03em; }
+.intro-outcome h3 { margin: 58px 0 0; font-size: clamp(18px, 10cqi, 30px); white-space: nowrap; font-weight: 600; line-height: 1.1; letter-spacing: -.03em; }
 .intro-outcome p { margin: 10px 0 0; color: #a7b8d0; font-size: 15px; }
 .intro-steps { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: auto 0 0; padding: 18px 0 0; border-top: 1px solid #ffffff14; list-style: none; }
 .intro-steps::before { content: "LIFECYCLE STEPS"; flex-basis: 100%; color: #7f93ae; font: 10px monospace; letter-spacing: .12em; }
