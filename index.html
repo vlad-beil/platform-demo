@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cloudinary for Visual Commerce</title>
-    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="styles.css?v=3">
     <script>
       window.LIFECYCLE_DEMO_CONFIG = {
         cloudName: 'demohost',
@@ -14,7 +14,7 @@
       };
     </script>
     <script src="https://upload-widget.cloudinary.com/latest/global/all.js"></script>
-    <script src="app.js?v=2" defer></script>
+    <script src="app.js?v=3" defer></script>
   </head>
   <body>
     <div class="app">
@@ -93,13 +93,13 @@
           <div class="ingest-stage">
             <article id="upload-prompt" class="upload-prompt">
               <input id="file" type="file" accept="image/*" hidden>
-              <strong class="upload-mark">↑</strong>
-              <button id="upload">Upload or Fetch Image</button>
-              <span class="sample-prompt">Use a sample asset instead</span>
+              <strong class="upload-mark" hidden>↑</strong>
+              <button id="upload" hidden>Upload or Fetch Image</button>
+              <span class="sample-prompt">Start with a sample asset</span>
               <div class="sample-links" aria-label="Example assets">
-                <a class="text-link" data-sample="lifestyle" href="#">Lifestyle campaign image</a>
-                <a class="text-link is-unavailable" aria-disabled="true" href="#">Product image</a>
-                <a class="text-link is-unavailable" aria-disabled="true" href="#">Creator / UGC image</a>
+                <a class="sample-button" data-sample="lifestyle" href="#">Lifestyle campaign image</a>
+                <a class="text-link is-unavailable" aria-disabled="true" href="#" hidden>Product image</a>
+                <a class="text-link is-unavailable" aria-disabled="true" href="#" hidden>Creator / UGC image</a>
               </div>
               <small id="note">This demo has been tuned for images, but in practice Cloudinary excels in video in the same workflow.</small>
             </article>
@@ -111,7 +111,7 @@
                 <div><dt>File size</dt><dd id="size">Cloudinary original</dd></div>
                 <div><dt>Unique asset ID</dt><dd>assigned on ingest</dd></div>
               </dl>
-              <button id="change-asset" class="change-asset">Change asset</button>
+              <button id="change-asset" class="change-asset" hidden>Change asset</button>
             </aside>
           </div>
         </section>
@@ -133,7 +133,7 @@
               <a class="customer-proof is-metric" href="https://cloudinary.com/customers/paul-smith" target="_blank" rel="noopener noreferrer"><b><img class="customer-logo is-wide" src="https://res.cloudinary.com/cloudinary-marketing/images/e_trim/f_auto,q_auto/v1668465171/Paul-Smith-logo-2x/Paul-Smith-logo-2x.png" alt="Paul Smith"></b><span><strong class="proof-metric">45%</strong>boost in video-enabled sales</span></a>
             </aside>
           </div>
-          <div id="generate-empty" class="generate-empty"><b>Upload an asset to generate</b><span>Choose an asset to create campaign and motion variations.</span></div>
+          <div id="generate-empty" class="generate-empty"><b>Select an asset to generate</b><span>Choose an asset to create campaign and motion variations.</span></div>
           <div id="generate-showcase" class="generate-showcase" hidden>
             <figure><img id="generate-original" src="https://res.cloudinary.com/demohost/image/upload/c_scale,w_300/f_auto/q_auto/v1787601621/utctndwrbavu4seggpqu.jpg" alt="Selected source asset"><figcaption>Original · 300px</figcaption></figure>
             <figure><img src="https://res.cloudinary.com/demohost/image/upload/c_fill,g_auto,w_300,ar_9:16/f_auto/q_auto/v1790997552/gen_fill_bride.jpg" alt="Generative fill result"><figcaption>Generative fill · 9:16</figcaption></figure>
@@ -165,7 +165,7 @@
             </aside>
           </div>
           <div id="moderate-empty" class="moderate-empty">
-            <b>Upload an asset to evaluate</b>
+            <b>Select an asset to evaluate</b>
             <span>Rule outcomes will appear here when an image is selected.</span>
           </div>
           <div id="moderate-showcase" class="moderate-showcase" hidden>
@@ -206,7 +206,7 @@
             </aside>
           </div>
           <div id="optimize-empty" class="optimize-empty">
-            <b>Upload an asset to optimize</b>
+            <b>Select an asset to optimize</b>
             <span>Cloudinary delivery variants will appear here when an image is selected.</span>
           </div>
           <div id="optimize-showcase" class="optimize-showcase" hidden>
@@ -250,7 +250,7 @@
             </aside>
           </div>
           <div id="deliver-empty" class="deliver-empty">
-            <b>Upload an asset to deliver</b>
+            <b>Select an asset to deliver</b>
             <span>Channel-ready variants will appear here when an image is selected.</span>
           </div>
           <div id="deliver-showcase" class="deliver-showcase" hidden>

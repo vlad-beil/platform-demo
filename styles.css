@@ -109,6 +109,10 @@ button { padding: 10px 14px; border: 0; border-radius: 8px; background: linear-g
 .sample-prompt { margin-top: 2px; color: #9aacc4; font: 11px Inter, sans-serif; }
 .sample-links { display: grid; justify-items: center; gap: 7px; }
 .text-link { color: var(--cyan); font: 12px Inter, sans-serif; text-decoration: underline; text-underline-offset: 3px; }
+.upload-prompt [hidden], .change-asset[hidden] { display: none; }
+.sample-button { min-width: 176px; padding: 10px 18px; border-radius: 8px; background: linear-gradient(135deg, #2c56d7, #4d74fa); color: #fff; font: 700 12px Inter, sans-serif; text-decoration: none; }
+.sample-button:hover { filter: brightness(1.1); }
+.sample-button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
 .text-link.is-unavailable { color: #7790ad; cursor: default; text-decoration: none; }
 .upload-prompt small { max-width: 280px; margin-top: 4px; color: var(--muted); font-size: 10px; line-height: 1.55; }
 .ingest-stage .inspector { position: relative; width: 100%; min-height: 0; }
