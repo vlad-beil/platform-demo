@@ -344,12 +344,9 @@ function syncModerationVisual() {
   setModerationRule('no-identifiable-people', peopleRejected || (overall === 'REJECTED' && failed === 1) ? 'rejected' : 'approved');
   setModerationRule('minimum-image-size', 'approved');
 
-  if (metadata.moderation_job_url) {
-    jobLink.href = metadata.moderation_job_url;
-    jobLink.hidden = false;
-  } else {
-    jobLink.hidden = true;
-  }
+  // Moderation job link is hidden for the demo; set jobLink.hidden = false to show it again.
+  if (metadata.moderation_job_url) jobLink.href = metadata.moderation_job_url;
+  jobLink.hidden = true;
 
   showcase.classList.remove('is-ready');
   void showcase.offsetWidth;
