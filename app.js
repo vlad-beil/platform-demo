@@ -30,6 +30,9 @@ function go(index) {
     $('#' + id).classList.toggle('active', itemIndex === activeIndex);
     document.querySelector(`nav a[href="#${id}"]`).classList.toggle('active', itemIndex === activeIndex);
   });
+  const activeLink = document.querySelector(`nav a[href="#${ids[activeIndex]}"]`);
+  const nav = activeLink.parentElement;
+  nav.scrollTo({ left: activeLink.offsetLeft - (nav.clientWidth - activeLink.offsetWidth) / 2, behavior: 'smooth' });
   const counter = $('#counter');
   if (counter) counter.textContent = names[activeIndex] + ' of 8';
   history.replaceState(null, '', '#' + ids[activeIndex]);
@@ -598,5 +601,5 @@ addEventListener('keydown', (event) => {
   if (event.key === 'ArrowLeft') go(activeIndex - 1);
 });
 
-updateAsset({ source: 'https://res.cloudinary.com/demohost/image/upload/v1787601621/utctndwrbavu4seggpqu.jpg' });
+updateAsset(sampleAssets.lifestyle);
 go(Math.max(0, ids.indexOf(location.hash.slice(1))));
